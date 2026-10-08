@@ -1,179 +1,288 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=UTF-8">
 
     <title>Mana Harvester</title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/styles.css">
+
 </head>
 
 <body>
 
 <div class="app">
 
-    <!-- ================= SIDEBAR ================= -->
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
     <aside class="sidebar">
 
         <div class="brand">
-            <div class="brand-icon">🌾</div>
+
+            <div class="brand-logo">
+                MH
+            </div>
 
             <div>
                 <h2>Mana Harvester</h2>
                 <span>Smart Farming</span>
             </div>
+
         </div>
 
-        <nav class="side-nav">
 
-            <a href="#" class="nav-item active">
-                <span>⌂</span>
-                Dashboard
+        <nav class="sidebar-nav">
+
+            <a href="#" class="nav-link active">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
             </a>
 
-            <a href="#booking" class="nav-item">
-                <span>📅</span>
-                Book Harvester
+            <a href="#booking" class="nav-link">
+                <span class="nav-icon">+</span>
+                <span>Book Harvester</span>
             </a>
 
-            <a href="#history" class="nav-item">
-                <span>🕘</span>
-                My Bookings
+            <a href="#history" class="nav-link">
+                <span class="nav-icon">▣</span>
+                <span>My Bookings</span>
             </a>
 
-            <a href="#updates" class="nav-item">
-                <span>🔔</span>
-                Updates
+            <a href="#weather" class="nav-link">
+                <span class="nav-icon">☁</span>
+                <span>Weather</span>
+            </a>
+
+            <a href="#updates" class="nav-link">
+                <span class="nav-icon">!</span>
+                <span>Updates</span>
             </a>
 
         </nav>
 
-        <div class="sidebar-bottom">
 
-            <div class="user-card">
-                <div class="avatar">M</div>
+        <div class="sidebar-user">
 
-                <div>
-                    <strong>Manohar</strong>
-                    <small>Farmer</small>
-                </div>
+            <img
+                src="images/farmer.jpg"
+                alt="Farmer"
+                class="avatar"
+            >
+
+            <div class="user-info">
+
+                <strong>Manohar</strong>
+
+                <span>Farmer</span>
+
             </div>
-
-            <button class="logout-btn">
-                Logout
-            </button>
 
         </div>
 
     </aside>
 
 
-    <!-- ================= MAIN ================= -->
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
     <main class="main">
 
         <!-- TOP BAR -->
+
         <header class="topbar">
 
             <div>
-                <p class="welcome">Good morning 👋</p>
-                <h1>Welcome, Manohar</h1>
+
+                <span class="welcome-text">
+                    Good morning
+                </span>
+
+                <h1>
+                    Welcome back, Manohar
+                </h1>
+
             </div>
 
-            <div class="top-actions">
 
-                <button class="notification">
-                    🔔
-                    <span></span>
-                </button>
+            <div class="top-profile">
 
-                <div class="profile">
-                    <div class="avatar">M</div>
-
-                    <div class="profile-info">
-                        <strong>Manohar</strong>
-                        <small>Farmer</small>
-                    </div>
+                <div class="notification">
+                    !
                 </div>
+
+                <img
+                    src="images/farmer.jpg"
+                    alt="Manohar"
+                    class="profile-photo"
+                >
 
             </div>
 
         </header>
 
 
-        <!-- ================= DASHBOARD ================= -->
+        <div class="dashboard">
 
-        <section class="dashboard">
 
-            <!-- STAT CARDS -->
+            <!-- =================================================
+                 HERO
+            ================================================== -->
 
-            <div class="stats-grid">
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <span class="hero-label">
+                        SMART FARMING
+                    </span>
+
+                    <h2>
+                        Harvest smarter.<br>
+                        Grow better.
+                    </h2>
+
+                    <p>
+                        Book your harvester, track your slots
+                        and stay updated with farming conditions.
+                    </p>
+
+                    <a href="#booking" class="hero-button">
+                        Book a Harvester
+                    </a>
+
+                </div>
+
+
+                <div class="hero-image">
+
+                    <img
+                        src="images/harvester.jpg"
+                        alt="Harvester working in field"
+                    >
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STATS
+            ================================================== -->
+
+            <section class="stats-grid">
 
                 <div class="stat-card">
-                    <div class="stat-icon green">📅</div>
+
+                    <div class="stat-icon green">
+                        B
+                    </div>
 
                     <div>
+
                         <span>Total Bookings</span>
+
                         <strong>12</strong>
+
                     </div>
+
                 </div>
 
 
                 <div class="stat-card">
-                    <div class="stat-icon orange">🚜</div>
+
+                    <div class="stat-icon orange">
+                        H
+                    </div>
 
                     <div>
+
                         <span>Upcoming</span>
+
                         <strong>2</strong>
+
                     </div>
+
                 </div>
 
 
                 <div class="stat-card">
-                    <div class="stat-icon blue">🌾</div>
+
+                    <div class="stat-icon blue">
+                        A
+                    </div>
 
                     <div>
+
                         <span>Total Acres</span>
+
                         <strong>18.5</strong>
+
                     </div>
+
                 </div>
 
 
                 <div class="stat-card">
-                    <div class="stat-icon purple">⏱</div>
+
+                    <div class="stat-icon purple">
+                        T
+                    </div>
 
                     <div>
+
                         <span>Hours Booked</span>
+
                         <strong>31</strong>
+
                     </div>
+
                 </div>
 
-            </div>
+            </section>
 
 
-            <!-- ================= MAIN GRID ================= -->
+            <!-- =================================================
+                 MAIN GRID
+            ================================================== -->
 
-            <div class="content-grid">
+            <section class="main-grid">
 
-                <!-- BOOKING -->
 
-                <section class="card booking-card" id="booking">
+                <!-- ================= BOOKING ================= -->
+
+                <section class="card booking-card"
+                         id="booking">
 
                     <div class="card-header">
 
                         <div>
-                            <span class="eyebrow">QUICK BOOKING</span>
 
-                            <h2>Book a Harvester</h2>
+                            <span class="section-label">
+                                QUICK BOOKING
+                            </span>
+
+                            <h2>
+                                Book a Harvester
+                            </h2>
 
                             <p>
-                                Choose your preferred date and harvester.
+                                Select your date, machine and
+                                preferred time slot.
                             </p>
-                        </div>
 
-                        <div class="booking-icon">
-                            🚜
                         </div>
 
                     </div>
@@ -183,9 +292,12 @@
 
                         <div class="form-grid">
 
-                            <div class="form-group">
 
-                                <label>Date</label>
+                            <div class="form-field">
+
+                                <label>
+                                    Booking Date
+                                </label>
 
                                 <input
                                     type="date"
@@ -196,25 +308,30 @@
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="form-field">
 
-                                <label>Harvester</label>
+                                <label>
+                                    Harvester
+                                </label>
 
-                                <select id="harvester" required>
+                                <select
+                                    id="harvester"
+                                    required
+                                >
 
                                     <option value="">
                                         Select harvester
                                     </option>
 
-                                    <option value="harvester-01">
+                                    <option>
                                         Harvester 01
                                     </option>
 
-                                    <option value="harvester-02">
+                                    <option>
                                         Harvester 02
                                     </option>
 
-                                    <option value="harvester-03">
+                                    <option>
                                         Harvester 03
                                     </option>
 
@@ -223,16 +340,18 @@
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="form-field">
 
-                                <label>Land Area</label>
+                                <label>
+                                    Land Area
+                                </label>
 
-                                <div class="input-unit">
+                                <div class="unit-input">
 
                                     <input
                                         type="number"
                                         id="acres"
-                                        placeholder="0"
+                                        placeholder="Enter acres"
                                         min="0.5"
                                         step="0.5"
                                         required
@@ -245,25 +364,28 @@
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="form-field">
 
-                                <label>Number of Trips</label>
+                                <label>
+                                    Number of Trips
+                                </label>
 
                                 <input
                                     type="number"
                                     id="trips"
                                     value="1"
                                     min="1"
-                                    max="10"
                                     required
                                 >
 
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="form-field">
 
-                                <label>Estimated Hours</label>
+                                <label>
+                                    Estimated Hours
+                                </label>
 
                                 <input
                                     type="number"
@@ -276,14 +398,16 @@
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="form-field">
 
-                                <label>Village / Location</label>
+                                <label>
+                                    Village / Location
+                                </label>
 
                                 <input
                                     type="text"
                                     id="location"
-                                    placeholder="Enter location"
+                                    placeholder="Enter village"
                                     required
                                 >
 
@@ -292,9 +416,14 @@
                         </div>
 
 
-                        <div class="form-group">
+                        <!-- SLOTS -->
 
-                            <label>Available Slots</label>
+                        <div class="slot-section">
+
+                            <label>
+                                Available Time Slots
+                            </label>
+
 
                             <div class="slots">
 
@@ -303,8 +432,15 @@
                                     class="slot active"
                                     data-slot="06:00 AM - 10:00 AM"
                                 >
-                                    <strong>06:00 AM</strong>
-                                    <span>04 hours</span>
+
+                                    <strong>
+                                        06:00 AM
+                                    </strong>
+
+                                    <span>
+                                        4 hours
+                                    </span>
+
                                 </button>
 
 
@@ -313,8 +449,15 @@
                                     class="slot"
                                     data-slot="10:00 AM - 02:00 PM"
                                 >
-                                    <strong>10:00 AM</strong>
-                                    <span>04 hours</span>
+
+                                    <strong>
+                                        10:00 AM
+                                    </strong>
+
+                                    <span>
+                                        4 hours
+                                    </span>
+
                                 </button>
 
 
@@ -323,8 +466,15 @@
                                     class="slot"
                                     data-slot="02:00 PM - 06:00 PM"
                                 >
-                                    <strong>02:00 PM</strong>
-                                    <span>04 hours</span>
+
+                                    <strong>
+                                        02:00 PM
+                                    </strong>
+
+                                    <span>
+                                        4 hours
+                                    </span>
+
                                 </button>
 
                             </div>
@@ -332,21 +482,26 @@
                         </div>
 
 
-                        <div class="form-group">
+                        <div class="form-field">
 
-                            <label>Additional Notes</label>
+                            <label>
+                                Additional Notes
+                            </label>
 
                             <textarea
                                 id="notes"
-                                placeholder="Any additional information..."
+                                placeholder="Any special requirements..."
                             ></textarea>
 
                         </div>
 
 
-                        <button class="primary-btn" type="submit">
+                        <button
+                            type="submit"
+                            class="primary-button"
+                        >
 
-                            <span>Confirm Booking</span>
+                            Confirm Booking
 
                             <span>→</span>
 
@@ -357,36 +512,50 @@
                 </section>
 
 
-                <!-- AVAILABILITY -->
+                <!-- ================= AVAILABILITY ================= -->
 
                 <section class="card availability-card">
 
                     <div class="card-header">
 
                         <div>
-                            <span class="eyebrow">LIVE STATUS</span>
 
-                            <h2>Harvester Availability</h2>
+                            <span class="section-label">
+                                LIVE STATUS
+                            </span>
+
+                            <h2>
+                                Harvester Availability
+                            </h2>
+
                         </div>
 
-                        <span class="status-dot">
+                        <span class="live-status">
                             Live
                         </span>
 
                     </div>
 
 
-                    <div class="availability-list">
+                    <div class="machines">
+
 
                         <div class="machine">
 
-                            <div class="machine-icon">
-                                🚜
+                            <div class="machine-image">
+
+                                <img
+                                    src="images/harvester.jpg"
+                                    alt="Harvester"
+                                >
+
                             </div>
 
                             <div class="machine-info">
 
-                                <strong>Harvester 01</strong>
+                                <strong>
+                                    Harvester 01
+                                </strong>
 
                                 <span>
                                     John Deere
@@ -394,22 +563,29 @@
 
                             </div>
 
-                            <div class="machine-status available">
+                            <span class="available">
                                 Available
-                            </div>
+                            </span>
 
                         </div>
 
 
                         <div class="machine">
 
-                            <div class="machine-icon">
-                                🚜
+                            <div class="machine-image">
+
+                                <img
+                                    src="images/harvester.jpg"
+                                    alt="Harvester"
+                                >
+
                             </div>
 
                             <div class="machine-info">
 
-                                <strong>Harvester 02</strong>
+                                <strong>
+                                    Harvester 02
+                                </strong>
 
                                 <span>
                                     Kubota
@@ -417,22 +593,29 @@
 
                             </div>
 
-                            <div class="machine-status booked">
+                            <span class="booked">
                                 Booked
-                            </div>
+                            </span>
 
                         </div>
 
 
                         <div class="machine">
 
-                            <div class="machine-icon">
-                                🚜
+                            <div class="machine-image">
+
+                                <img
+                                    src="images/harvester.jpg"
+                                    alt="Harvester"
+                                >
+
                             </div>
 
                             <div class="machine-info">
 
-                                <strong>Harvester 03</strong>
+                                <strong>
+                                    Harvester 03
+                                </strong>
 
                                 <span>
                                     Mahindra
@@ -440,80 +623,184 @@
 
                             </div>
 
-                            <div class="machine-status available">
+                            <span class="available">
                                 Available
-                            </div>
+                            </span>
 
                         </div>
-
-                    </div>
-
-
-                    <div class="availability-footer">
-
-                        <span>Next available slot</span>
-
-                        <strong>Tomorrow · 06:00 AM</strong>
 
                     </div>
 
                 </section>
 
-            </div>
+
+            </section>
 
 
-            <!-- ================= LOWER GRID ================= -->
+            <!-- =================================================
+                 WEATHER + VIDEO
+            ================================================== -->
 
-            <div class="lower-grid">
+            <section class="media-grid">
 
 
-                <!-- UPCOMING BOOKING -->
+                <!-- WEATHER -->
 
-                <section class="card upcoming-card">
+                <section class="weather-card"
+                         id="weather">
+
+                    <img
+                        src="images/weather.jpg"
+                        alt="Weather conditions"
+                    >
+
+                    <div class="weather-overlay">
+
+                        <span>
+                            TODAY'S WEATHER
+                        </span>
+
+                        <h2>
+                            28°C
+                        </h2>
+
+                        <strong>
+                            Partly Cloudy
+                        </strong>
+
+                        <p>
+                            Hyderabad · Telangana
+                        </p>
+
+                        <div class="weather-details">
+
+                            <span>
+                                Humidity 64%
+                            </span>
+
+                            <span>
+                                Wind 12 km/h
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- HARVESTER VIDEO -->
+
+                <section class="video-card">
+
+                    <div class="video-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                FIELD ACTIVITY
+                            </span>
+
+                            <h2>
+                                Harvester in Action
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <video
+                        class="harvester-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        controls
+                    >
+
+                        <source
+                            src="videos/harvester.mp4"
+                            type="video/mp4"
+                        >
+
+                        Your browser does not support
+                        video playback.
+
+                    </video>
+
+                </section>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 LOWER GRID
+            ================================================== -->
+
+            <section class="lower-grid">
+
+
+                <!-- UPCOMING -->
+
+                <section class="card"
+                         id="history">
 
                     <div class="card-header">
 
                         <div>
-                            <span class="eyebrow">
+
+                            <span class="section-label">
                                 NEXT BOOKING
                             </span>
 
-                            <h2>Upcoming</h2>
+                            <h2>
+                                Upcoming Booking
+                            </h2>
+
                         </div>
 
-                        <a href="#history">
+                        <a href="#">
                             View all
                         </a>
 
                     </div>
 
 
-                    <div class="booking-item">
+                    <div class="booking-row">
 
                         <div class="date-box">
 
-                            <strong>18</strong>
-                            <span>OCT</span>
-
-                        </div>
-
-
-                        <div class="booking-details">
-
-                            <strong>Harvester 01</strong>
+                            <strong>
+                                18
+                            </strong>
 
                             <span>
-                                📍 Donabanda
-                            </span>
-
-                            <span>
-                                🕕 06:00 AM - 10:00 AM
+                                OCT
                             </span>
 
                         </div>
 
 
-                        <span class="badge confirmed">
+                        <div class="booking-info">
+
+                            <strong>
+                                Harvester 01
+                            </strong>
+
+                            <span>
+                                Donabanda
+                            </span>
+
+                            <span>
+                                06:00 AM - 10:00 AM
+                            </span>
+
+                        </div>
+
+
+                        <span class="confirmed">
                             Confirmed
                         </span>
 
@@ -524,109 +811,94 @@
 
                 <!-- UPDATES -->
 
-                <section class="card updates-card" id="updates">
+                <section class="card"
+                         id="updates">
 
                     <div class="card-header">
 
                         <div>
-                            <span class="eyebrow">
+
+                            <span class="section-label">
                                 NOTIFICATIONS
                             </span>
 
-                            <h2>Latest Updates</h2>
-                        </div>
-
-                        <span class="notification-count">
-                            3
-                        </span>
-
-                    </div>
-
-
-                    <div class="update">
-
-                        <div class="update-icon green">
-                            ✓
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Booking confirmed
-                            </strong>
-
-                            <p>
-                                Your Harvester 01 booking is confirmed.
-                            </p>
-
-                            <small>
-                                20 minutes ago
-                            </small>
+                            <h2>
+                                Latest Updates
+                            </h2>
 
                         </div>
 
                     </div>
 
 
-                    <div class="update">
-
-                        <div class="update-icon orange">
-                            !
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Maintenance notice
-                            </strong>
-
-                            <p>
-                                Harvester 02 will be under maintenance.
-                            </p>
-
-                            <small>
-                                2 hours ago
-                            </small>
-
-                        </div>
-
-                    </div>
+                    <div class="updates">
 
 
-                    <div class="update">
+                        <div class="update">
 
-                        <div class="update-icon blue">
-                            ℹ
-                        </div>
+                            <div class="update-icon success">
+                                ✓
+                            </div>
 
-                        <div>
+                            <div>
 
-                            <strong>
-                                New slots available
-                            </strong>
+                                <strong>
+                                    Booking confirmed
+                                </strong>
 
-                            <p>
-                                Additional slots opened for tomorrow.
-                            </p>
+                                <p>
+                                    Harvester 01 booking confirmed.
+                                </p>
 
-                            <small>
-                                Yesterday
-                            </small>
+                                <small>
+                                    20 minutes ago
+                                </small>
+
+                            </div>
 
                         </div>
+
+
+                        <div class="update">
+
+                            <div class="update-icon warning">
+                                !
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Maintenance notice
+                                </strong>
+
+                                <p>
+                                    Harvester 02 is under maintenance.
+                                </p>
+
+                                <small>
+                                    2 hours ago
+                                </small>
+
+                            </div>
+
+                        </div>
+
 
                     </div>
 
                 </section>
 
-            </div>
 
-        </section>
+            </section>
+
+        </div>
 
     </main>
 
 
-    <!-- ================= MOBILE NAV ================= -->
+    <!-- =====================================================
+         MOBILE NAV
+    ====================================================== -->
 
     <nav class="mobile-nav">
 
@@ -636,17 +908,17 @@
         </a>
 
         <a href="#booking">
-            <span>＋</span>
+            <span>+</span>
             Book
         </a>
 
         <a href="#history">
-            <span>🕘</span>
+            <span>▣</span>
             History
         </a>
 
         <a href="#updates">
-            <span>🔔</span>
+            <span>!</span>
             Updates
         </a>
 
@@ -655,7 +927,7 @@
 </div>
 
 
-<script src="script.js"></script>
+<script src="${pageContext.request.contextPath}/script.js"></script>
 
 </body>
 </html>
