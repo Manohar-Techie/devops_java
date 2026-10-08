@@ -1,659 +1,661 @@
-```jsp
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mana Harvester - Slot Booking</title>
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Mana Harvester</title>
 
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<header class="header">
-    <div class="container header-content">
+<div class="app">
 
-        <div class="logo">
-            <i class="fa-solid fa-tractor"></i>
-            <span>Mana <strong>Harvester</strong></span>
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">🌾</div>
+
+            <div>
+                <h2>Mana Harvester</h2>
+                <span>Smart Farming</span>
+            </div>
         </div>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#booking">Book Slot</a>
-            <a href="#bookings">My Bookings</a>
-            <a href="#updates">Updates</a>
+        <nav class="side-nav">
+
+            <a href="#" class="nav-item active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#booking" class="nav-item">
+                <span>📅</span>
+                Book Harvester
+            </a>
+
+            <a href="#history" class="nav-item">
+                <span>🕘</span>
+                My Bookings
+            </a>
+
+            <a href="#updates" class="nav-item">
+                <span>🔔</span>
+                Updates
+            </a>
+
         </nav>
 
-        <button class="login-btn" onclick="openLogin()">
-            <i class="fa-solid fa-user"></i>
-            Login
-        </button>
+        <div class="sidebar-bottom">
 
-    </div>
-</header>
+            <div class="user-card">
+                <div class="avatar">M</div>
 
+                <div>
+                    <strong>Manohar</strong>
+                    <small>Farmer</small>
+                </div>
+            </div>
 
-<main>
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <span class="badge">
-            <i class="fa-solid fa-wheat-awn"></i>
-            Easy Harvesting
-        </span>
-
-        <h1>
-            Book Your Harvester
-            <span>Slot Easily</span>
-        </h1>
-
-        <p>
-            Select your date, harvester, number of trips and acres.
-            Get your harvesting slot without waiting.
-        </p>
-
-        <div class="hero-buttons">
-
-            <button class="primary-btn"
-                    onclick="scrollToBooking()">
-                <i class="fa-solid fa-calendar-check"></i>
-                Book Harvester
-            </button>
-
-            <button class="secondary-btn"
-                    onclick="scrollToBookings()">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                My Bookings
+            <button class="logout-btn">
+                Logout
             </button>
 
         </div>
 
-    </div>
+    </aside>
 
-    <div class="hero-image">
-        <i class="fa-solid fa-tractor"></i>
-    </div>
 
-</section>
+    <!-- ================= MAIN ================= -->
 
+    <main class="main">
 
-<!-- QUICK STATS -->
+        <!-- TOP BAR -->
+        <header class="topbar">
 
-<section class="stats container">
-
-    <div class="stat-card">
-        <i class="fa-solid fa-tractor"></i>
-        <div>
-            <h3>8</h3>
-            <p>Harvesters</p>
-        </div>
-    </div>
-
-    <div class="stat-card">
-        <i class="fa-solid fa-calendar-check"></i>
-        <div>
-            <h3>24</h3>
-            <p>Available Slots</p>
-        </div>
-    </div>
-
-    <div class="stat-card">
-        <i class="fa-solid fa-users"></i>
-        <div>
-            <h3>320+</h3>
-            <p>Farmers</p>
-        </div>
-    </div>
-
-    <div class="stat-card">
-        <i class="fa-solid fa-clock"></i>
-        <div>
-            <h3>24/7</h3>
-            <p>Booking Support</p>
-        </div>
-    </div>
-
-</section>
-
-
-<!-- BOOKING -->
-
-<section class="section" id="booking">
-
-    <div class="container">
-
-        <div class="section-heading">
-            <span>BOOK YOUR SLOT</span>
-            <h2>Harvester Slot Booking</h2>
-            <p>
-                Enter your field details and select an available slot.
-            </p>
-        </div>
-
-
-        <div class="booking-layout">
-
-            <!-- FORM -->
-
-            <div class="booking-card">
-
-                <h3>
-                    <i class="fa-solid fa-calendar-plus"></i>
-                    Booking Details
-                </h3>
-
-                <form id="bookingForm">
-
-                    <div class="form-row">
-
-                        <div class="form-group">
-                            <label>Farmer Name</label>
-                            <input
-                                type="text"
-                                id="farmerName"
-                                placeholder="Enter your name"
-                                required>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Mobile Number</label>
-                            <input
-                                type="tel"
-                                id="mobile"
-                                placeholder="10 digit mobile number"
-                                maxlength="10"
-                                required>
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-row">
-
-                        <div class="form-group">
-
-                            <label>Select Date</label>
-
-                            <input
-                                type="date"
-                                id="bookingDate"
-                                required>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Harvester</label>
-
-                            <select id="harvester" required>
-
-                                <option value="">
-                                    Select Harvester
-                                </option>
-
-                                <option value="Harvester 01">
-                                    Harvester 01
-                                </option>
-
-                                <option value="Harvester 02">
-                                    Harvester 02
-                                </option>
-
-                                <option value="Harvester 03">
-                                    Harvester 03
-                                </option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-row">
-
-                        <div class="form-group">
-
-                            <label>Number of Acres</label>
-
-                            <input
-                                type="number"
-                                id="acres"
-                                min="1"
-                                placeholder="Example: 5"
-                                required>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Number of Trips</label>
-
-                            <input
-                                type="number"
-                                id="trips"
-                                min="1"
-                                placeholder="Example: 2"
-                                required>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label>Estimated Hours</label>
-
-                        <input
-                            type="number"
-                            id="hours"
-                            min="1"
-                            placeholder="Example: 6"
-                            required>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label>Preferred Slot</label>
-
-                        <div class="slots">
-
-                            <label class="slot">
-                                <input type="radio"
-                                       name="slot"
-                                       value="06:00 AM - 10:00 AM"
-                                       required>
-                                <span>06 AM - 10 AM</span>
-                            </label>
-
-                            <label class="slot">
-                                <input type="radio"
-                                       name="slot"
-                                       value="10:00 AM - 02:00 PM">
-                                <span>10 AM - 02 PM</span>
-                            </label>
-
-                            <label class="slot">
-                                <input type="radio"
-                                       name="slot"
-                                       value="02:00 PM - 06:00 PM">
-                                <span>02 PM - 06 PM</span>
-                            </label>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label>Village / Location</label>
-
-                        <input
-                            type="text"
-                            id="location"
-                            placeholder="Enter village / field location"
-                            required>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label>Additional Notes</label>
-
-                        <textarea
-                            id="notes"
-                            rows="3"
-                            placeholder="Any additional information...">
-                        </textarea>
-
-                    </div>
-
-
-                    <button type="submit" class="book-btn">
-
-                        <i class="fa-solid fa-check"></i>
-
-                        Confirm Booking
-
-                    </button>
-
-                </form>
-
+            <div>
+                <p class="welcome">Good morning 👋</p>
+                <h1>Welcome, Manohar</h1>
             </div>
 
+            <div class="top-actions">
 
-            <!-- AVAILABILITY -->
-
-            <div class="availability-card">
-
-                <div class="availability-header">
-
-                    <div>
-                        <span>LIVE</span>
-                        <h3>Available Slots</h3>
-                    </div>
-
-                    <i class="fa-solid fa-tractor"></i>
-
-                </div>
-
-
-                <div class="availability-item available">
-
-                    <div class="time">
-                        <strong>06:00 AM</strong>
-                        <small>10:00 AM</small>
-                    </div>
-
-                    <div>
-                        <strong>Harvester 01</strong>
-                        <p>Available</p>
-                    </div>
-
-                    <span class="status available-status">
-                        Available
-                    </span>
-
-                </div>
-
-
-                <div class="availability-item available">
-
-                    <div class="time">
-                        <strong>10:00 AM</strong>
-                        <small>02:00 PM</small>
-                    </div>
-
-                    <div>
-                        <strong>Harvester 02</strong>
-                        <p>Available</p>
-                    </div>
-
-                    <span class="status available-status">
-                        Available
-                    </span>
-
-                </div>
-
-
-                <div class="availability-item booked">
-
-                    <div class="time">
-                        <strong>02:00 PM</strong>
-                        <small>06:00 PM</small>
-                    </div>
-
-                    <div>
-                        <strong>Harvester 03</strong>
-                        <p>Already booked</p>
-                    </div>
-
-                    <span class="status booked-status">
-                        Booked
-                    </span>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <i class="fa-solid fa-circle-info"></i>
-
-                    <p>
-                        Slots are confirmed based on availability.
-                        You will receive a booking confirmation after
-                        successful submission.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- MY BOOKINGS -->
-
-<section class="section bookings-section" id="bookings">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span>MY BOOKINGS</span>
-
-            <h2>Recent Bookings</h2>
-
-            <p>
-                Track your harvester bookings and their status.
-            </p>
-
-        </div>
-
-
-        <div id="bookingList" class="booking-list">
-
-            <div class="empty-bookings">
-
-                <i class="fa-solid fa-calendar-xmark"></i>
-
-                <h3>No bookings yet</h3>
-
-                <p>
-                    Your confirmed bookings will appear here.
-                </p>
-
-                <button
-                    class="primary-btn"
-                    onclick="scrollToBooking()">
-
-                    Book Your First Slot
-
+                <button class="notification">
+                    🔔
+                    <span></span>
                 </button>
 
-            </div>
+                <div class="profile">
+                    <div class="avatar">M</div>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- UPDATES -->
-
-<section class="section updates-section" id="updates">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span>LATEST UPDATES</span>
-
-            <h2>Farmer Updates</h2>
-
-        </div>
-
-
-        <div class="updates-grid">
-
-            <div class="update-card">
-
-                <div class="update-icon">
-                    <i class="fa-solid fa-bullhorn"></i>
-                </div>
-
-                <div>
-
-                    <span>Today</span>
-
-                    <h3>Harvesting slots opened</h3>
-
-                    <p>
-                        New harvester slots are available for
-                        the upcoming harvesting season.
-                    </p>
-
+                    <div class="profile-info">
+                        <strong>Manohar</strong>
+                        <small>Farmer</small>
+                    </div>
                 </div>
 
             </div>
 
+        </header>
 
-            <div class="update-card">
 
-                <div class="update-icon">
-                    <i class="fa-solid fa-cloud-sun"></i>
+        <!-- ================= DASHBOARD ================= -->
+
+        <section class="dashboard">
+
+            <!-- STAT CARDS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon green">📅</div>
+
+                    <div>
+                        <span>Total Bookings</span>
+                        <strong>12</strong>
+                    </div>
                 </div>
 
-                <div>
 
-                    <span>Yesterday</span>
+                <div class="stat-card">
+                    <div class="stat-icon orange">🚜</div>
 
-                    <h3>Weather update</h3>
+                    <div>
+                        <span>Upcoming</span>
+                        <strong>2</strong>
+                    </div>
+                </div>
 
-                    <p>
-                        Farmers are advised to check weather
-                        conditions before confirming slots.
-                    </p>
 
+                <div class="stat-card">
+                    <div class="stat-icon blue">🌾</div>
+
+                    <div>
+                        <span>Total Acres</span>
+                        <strong>18.5</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">⏱</div>
+
+                    <div>
+                        <span>Hours Booked</span>
+                        <strong>31</strong>
+                    </div>
                 </div>
 
             </div>
 
 
-            <div class="update-card">
+            <!-- ================= MAIN GRID ================= -->
 
-                <div class="update-icon">
-                    <i class="fa-solid fa-circle-check"></i>
-                </div>
+            <div class="content-grid">
 
-                <div>
+                <!-- BOOKING -->
 
-                    <span>This week</span>
+                <section class="card booking-card" id="booking">
 
-                    <h3>Booking system available</h3>
+                    <div class="card-header">
 
-                    <p>
-                        Farmers can now book harvesting slots
-                        online.
-                    </p>
+                        <div>
+                            <span class="eyebrow">QUICK BOOKING</span>
 
-                </div>
+                            <h2>Book a Harvester</h2>
+
+                            <p>
+                                Choose your preferred date and harvester.
+                            </p>
+                        </div>
+
+                        <div class="booking-icon">
+                            🚜
+                        </div>
+
+                    </div>
+
+
+                    <form id="bookingForm">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label>Date</label>
+
+                                <input
+                                    type="date"
+                                    id="bookingDate"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Harvester</label>
+
+                                <select id="harvester" required>
+
+                                    <option value="">
+                                        Select harvester
+                                    </option>
+
+                                    <option value="harvester-01">
+                                        Harvester 01
+                                    </option>
+
+                                    <option value="harvester-02">
+                                        Harvester 02
+                                    </option>
+
+                                    <option value="harvester-03">
+                                        Harvester 03
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Land Area</label>
+
+                                <div class="input-unit">
+
+                                    <input
+                                        type="number"
+                                        id="acres"
+                                        placeholder="0"
+                                        min="0.5"
+                                        step="0.5"
+                                        required
+                                    >
+
+                                    <span>Acres</span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Number of Trips</label>
+
+                                <input
+                                    type="number"
+                                    id="trips"
+                                    value="1"
+                                    min="1"
+                                    max="10"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Estimated Hours</label>
+
+                                <input
+                                    type="number"
+                                    id="hours"
+                                    placeholder="Example: 4"
+                                    min="1"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Village / Location</label>
+
+                                <input
+                                    type="text"
+                                    id="location"
+                                    placeholder="Enter location"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Available Slots</label>
+
+                            <div class="slots">
+
+                                <button
+                                    type="button"
+                                    class="slot active"
+                                    data-slot="06:00 AM - 10:00 AM"
+                                >
+                                    <strong>06:00 AM</strong>
+                                    <span>04 hours</span>
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="slot"
+                                    data-slot="10:00 AM - 02:00 PM"
+                                >
+                                    <strong>10:00 AM</strong>
+                                    <span>04 hours</span>
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="slot"
+                                    data-slot="02:00 PM - 06:00 PM"
+                                >
+                                    <strong>02:00 PM</strong>
+                                    <span>04 hours</span>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Additional Notes</label>
+
+                            <textarea
+                                id="notes"
+                                placeholder="Any additional information..."
+                            ></textarea>
+
+                        </div>
+
+
+                        <button class="primary-btn" type="submit">
+
+                            <span>Confirm Booking</span>
+
+                            <span>→</span>
+
+                        </button>
+
+                    </form>
+
+                </section>
+
+
+                <!-- AVAILABILITY -->
+
+                <section class="card availability-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="eyebrow">LIVE STATUS</span>
+
+                            <h2>Harvester Availability</h2>
+                        </div>
+
+                        <span class="status-dot">
+                            Live
+                        </span>
+
+                    </div>
+
+
+                    <div class="availability-list">
+
+                        <div class="machine">
+
+                            <div class="machine-icon">
+                                🚜
+                            </div>
+
+                            <div class="machine-info">
+
+                                <strong>Harvester 01</strong>
+
+                                <span>
+                                    John Deere
+                                </span>
+
+                            </div>
+
+                            <div class="machine-status available">
+                                Available
+                            </div>
+
+                        </div>
+
+
+                        <div class="machine">
+
+                            <div class="machine-icon">
+                                🚜
+                            </div>
+
+                            <div class="machine-info">
+
+                                <strong>Harvester 02</strong>
+
+                                <span>
+                                    Kubota
+                                </span>
+
+                            </div>
+
+                            <div class="machine-status booked">
+                                Booked
+                            </div>
+
+                        </div>
+
+
+                        <div class="machine">
+
+                            <div class="machine-icon">
+                                🚜
+                            </div>
+
+                            <div class="machine-info">
+
+                                <strong>Harvester 03</strong>
+
+                                <span>
+                                    Mahindra
+                                </span>
+
+                            </div>
+
+                            <div class="machine-status available">
+                                Available
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="availability-footer">
+
+                        <span>Next available slot</span>
+
+                        <strong>Tomorrow · 06:00 AM</strong>
+
+                    </div>
+
+                </section>
 
             </div>
 
-        </div>
 
-    </div>
+            <!-- ================= LOWER GRID ================= -->
 
-</section>
-
-</main>
+            <div class="lower-grid">
 
 
-<!-- LOGIN MODAL -->
+                <!-- UPCOMING BOOKING -->
 
-<div class="modal" id="loginModal">
+                <section class="card upcoming-card">
 
-    <div class="modal-content">
+                    <div class="card-header">
 
-        <button class="close-btn"
-                onclick="closeLogin()">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
+                        <div>
+                            <span class="eyebrow">
+                                NEXT BOOKING
+                            </span>
 
-        <div class="login-icon">
-            <i class="fa-solid fa-mobile-screen"></i>
-        </div>
+                            <h2>Upcoming</h2>
+                        </div>
 
-        <h2>Farmer Login</h2>
+                        <a href="#history">
+                            View all
+                        </a>
 
-        <p>
-            Login using your mobile number.
-        </p>
+                    </div>
 
-        <input
-            type="tel"
-            id="loginMobile"
-            placeholder="Enter mobile number"
-            maxlength="10">
 
-        <button
-            class="book-btn"
-            onclick="sendOtp()">
+                    <div class="booking-item">
 
-            Send OTP
+                        <div class="date-box">
 
-        </button>
+                            <strong>18</strong>
+                            <span>OCT</span>
 
-        <div id="otpSection" class="otp-section">
+                        </div>
 
-            <input
-                type="text"
-                id="otp"
-                placeholder="Enter OTP"
-                maxlength="6">
 
-            <button
-                class="book-btn"
-                onclick="verifyOtp()">
+                        <div class="booking-details">
 
-                Verify OTP
+                            <strong>Harvester 01</strong>
 
-            </button>
+                            <span>
+                                📍 Donabanda
+                            </span>
 
-        </div>
+                            <span>
+                                🕕 06:00 AM - 10:00 AM
+                            </span>
 
-    </div>
+                        </div>
+
+
+                        <span class="badge confirmed">
+                            Confirmed
+                        </span>
+
+                    </div>
+
+                </section>
+
+
+                <!-- UPDATES -->
+
+                <section class="card updates-card" id="updates">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="eyebrow">
+                                NOTIFICATIONS
+                            </span>
+
+                            <h2>Latest Updates</h2>
+                        </div>
+
+                        <span class="notification-count">
+                            3
+                        </span>
+
+                    </div>
+
+
+                    <div class="update">
+
+                        <div class="update-icon green">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Booking confirmed
+                            </strong>
+
+                            <p>
+                                Your Harvester 01 booking is confirmed.
+                            </p>
+
+                            <small>
+                                20 minutes ago
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="update">
+
+                        <div class="update-icon orange">
+                            !
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Maintenance notice
+                            </strong>
+
+                            <p>
+                                Harvester 02 will be under maintenance.
+                            </p>
+
+                            <small>
+                                2 hours ago
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="update">
+
+                        <div class="update-icon blue">
+                            ℹ
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                New slots available
+                            </strong>
+
+                            <p>
+                                Additional slots opened for tomorrow.
+                            </p>
+
+                            <small>
+                                Yesterday
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= MOBILE NAV ================= -->
+
+    <nav class="mobile-nav">
+
+        <a href="#" class="active">
+            <span>⌂</span>
+            Home
+        </a>
+
+        <a href="#booking">
+            <span>＋</span>
+            Book
+        </a>
+
+        <a href="#history">
+            <span>🕘</span>
+            History
+        </a>
+
+        <a href="#updates">
+            <span>🔔</span>
+            Updates
+        </a>
+
+    </nav>
 
 </div>
-
-
-<footer>
-
-    <div class="container footer-content">
-
-        <div class="logo">
-            <i class="fa-solid fa-tractor"></i>
-            Mana <strong>Harvester</strong>
-        </div>
-
-        <p>
-            Making harvesting easier for every farmer.
-        </p>
-
-        <p>
-            © 2026 Mana Harvester. All rights reserved.
-        </p>
-
-    </div>
-
-</footer>
 
 
 <script src="script.js"></script>
 
 </body>
 </html>
-```
