@@ -1,20 +1,42 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const form = document.getElementById("bookingForm");
+    const form =
+        document.getElementById("bookingForm");
 
-    const slots = document.querySelectorAll(".slot");
+    const slots =
+        document.querySelectorAll(".slot");
+
+
+    /*
+     * SET TODAY AS DEFAULT DATE
+     */
+
+    const dateInput =
+        document.getElementById("bookingDate");
+
+    if (dateInput) {
+
+        const today =
+            new Date().toISOString().split("T")[0];
+
+        dateInput.min = today;
+
+        dateInput.value = today;
+    }
 
 
     /*
      * SLOT SELECTION
      */
 
-    slots.forEach(slot => {
+    slots.forEach(function (slot) {
 
-        slot.addEventListener("click", () => {
+        slot.addEventListener("click", function () {
 
-            slots.forEach(item => {
+            slots.forEach(function (item) {
+
                 item.classList.remove("active");
+
             });
 
             slot.classList.add("active");
@@ -28,80 +50,51 @@ document.addEventListener("DOMContentLoaded", () => {
      * BOOKING
      */
 
-    form.addEventListener("submit", event => {
+    form.addEventListener("submit", function (event) {
 
         event.preventDefault();
-
-
-        const date =
-            document.getElementById("bookingDate").value;
-
-        const harvester =
-            document.getElementById("harvester").value;
-
-        const acres =
-            document.getElementById("acres").value;
-
-        const trips =
-            document.getElementById("trips").value;
-
-        const hours =
-            document.getElementById("hours").value;
-
-        const location =
-            document.getElementById("location").value;
-
-
-        if (!date || !harvester || !acres ||
-            !trips || !hours || !location) {
-
-            alert("Please fill all required fields.");
-
-            return;
-        }
-
-
-        const selectedSlot =
-            document.querySelector(".slot.active");
-
-
-        const slot =
-            selectedSlot
-                ? selectedSlot.dataset.slot
-                : "";
 
 
         const booking = {
 
             id:
-                "BK-" +
-                Date.now(),
+                "BK-" + Date.now(),
 
-            date,
+            date:
+                document.getElementById("bookingDate").value,
 
-            harvester,
+            harvester:
+                document.getElementById("harvester").value,
 
-            acres,
+            acres:
+                document.getElementById("acres").value,
 
-            trips,
+            trips:
+                document.getElementById("trips").value,
 
-            hours,
+            hours:
+                document.getElementById("hours").value,
 
-            location,
+            location:
+                document.getElementById("location").value,
 
-            slot,
+            notes:
+                document.getElementById("notes").value,
 
-            createdAt:
-                new Date().toISOString()
+            slot:
+                document
+                    .querySelector(".slot.active")
+                    ?.dataset.slot || ""
 
         };
 
 
         /*
-         * Save temporarily in browser.
+         * Temporary local storage.
          *
-         * Later this will be replaced
-         * with Spring Boot REST API.
+         * Later replace this with:
+         *
+         * POST /api/bookings
          */
 
         const bookings =
@@ -120,20 +113,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         alert(
-            `Booking confirmed!\n\n` +
-            `Booking ID: ${booking.id}\n` +
-            `Harvester: ${harvester}\n` +
-            `Date: ${date}\n` +
-            `Slot: ${slot}`
+            "Booking confirmed!\n\n" +
+            "Booking ID: " + booking.id
         );
 
 
         form.reset();
 
 
-        slots.forEach(item => {
-            item.classList.remove("active");
+        dateInput.value =
+            new Date()
+                .toISOString()
+                .split("T")[0];
+
+
+        slots.forEach(function (slot) {
+
+            slot.classList.remove("active");
+
         });
+
 
         slots[0].classList.add("active");
 
