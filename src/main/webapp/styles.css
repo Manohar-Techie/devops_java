@@ -1,634 +1,643 @@
-/* =========================================
-   MOBILE-FIRST DESIGN SYSTEM
-   ========================================= */
-
-:root {
-    --primary: #2e7d32;
-    --primary-dark: #1b5e20;
-    --primary-light: #e8f5e9;
-
-    --secondary: #f9a825;
-    --secondary-light: #fff8e1;
-
-    --dark: #1f2937;
-    --text: #374151;
-    --muted: #6b7280;
-
-    --background: #f7f9f6;
-    --white: #ffffff;
-
-    --border: #e5e7eb;
-
-    --success: #2e7d32;
-    --danger: #d32f2f;
-
-    --radius: 12px;
-    --radius-lg: 18px;
-
-    --shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
-
-    --page-margin: 16px;
-    --grid-gap: 16px;
-}
-
-
-/* =========================================
+/* =====================================================
    RESET
-   ========================================= */
+===================================================== */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+:root {
 
-html {
-    scroll-behavior: smooth;
+    --primary: #16803c;
+    --primary-dark: #10652f;
+    --primary-light: #eaf7ee;
+
+    --text: #17201a;
+    --muted: #6b756e;
+
+    --border: #e5e9e6;
+
+    --background: #f5f7f5;
+    --surface: #ffffff;
+
+    --success: #16803c;
+    --warning: #d88919;
+    --danger: #d64545;
+    --blue: #2878d4;
+
+    --radius: 16px;
+
+    --shadow:
+        0 2px 8px rgba(20, 40, 25, 0.04);
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 }
 
 
 body {
-    font-family: Arial, sans-serif;
     background: var(--background);
     color: var(--text);
     line-height: 1.5;
 }
 
 
-/* =========================================
-   4-COLUMN MOBILE GRID
-   ========================================= */
+/* =====================================================
+   APP
+===================================================== */
 
-.container {
-    width: 100%;
-    max-width: 1440px;
-
-    margin: 0 auto;
-
-    padding-left: var(--page-margin);
-    padding-right: var(--page-margin);
+.app {
+    min-height: 100vh;
 }
 
 
-/*
-    Every major section follows the same
-    4-column mobile grid.
-*/
+/* =====================================================
+   SIDEBAR
+===================================================== */
 
-.grid {
+.sidebar {
+    display: none;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main {
+    width: 100%;
+    padding-bottom: 80px;
+}
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar {
+
+    background: var(--surface);
+
+    padding: 20px;
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+.welcome {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+.topbar h1 {
+    margin-top: 2px;
+
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.notification {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--border);
+
+    background: white;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    cursor: pointer;
+}
+
+
+.notification span {
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    background: var(--danger);
+
+    border-radius: 50%;
+
+    top: 8px;
+    right: 8px;
+}
+
+
+.profile {
+    display: none;
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard {
+    padding: 16px;
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats-grid {
+
     display: grid;
 
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
-    gap: var(--grid-gap);
+    gap: 12px;
+
+    margin-bottom: 16px;
 }
 
 
-/* =========================================
-   HEADER
-   ========================================= */
+.stat-card {
 
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background: var(--surface);
 
-    background: rgba(255,255,255,0.96);
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.stat-icon {
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+}
+
+
+.stat-icon.green {
+    background: #e7f6ec;
+}
+
+
+.stat-icon.orange {
+    background: #fff2df;
+}
+
+
+.stat-icon.blue {
+    background: #e8f1fc;
+}
+
+
+.stat-icon.purple {
+    background: #f1eafa;
+}
+
+
+.stat-card span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.stat-card strong {
+
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 21px;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.content-grid,
+.lower-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 16px;
+}
+
+
+.booking-card,
+.availability-card,
+.upcoming-card,
+.updates-card {
+
+    grid-column: span 4;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+}
+
+
+.card-header {
+
+    padding: 18px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 15px;
 
     border-bottom: 1px solid var(--border);
 }
 
 
-.header-content {
-    min-height: 64px;
+.card-header h2 {
 
-    display: grid;
+    font-size: 18px;
 
-    grid-template-columns: 1fr auto;
-
-    align-items: center;
-
-    gap: 16px;
+    margin-top: 4px;
 }
 
 
-.logo {
-    display: flex;
-    align-items: center;
+.card-header p {
 
-    gap: 8px;
+    color: var(--muted);
 
-    font-size: 19px;
-    font-weight: 700;
+    font-size: 13px;
+
+    margin-top: 3px;
 }
 
 
-.logo i {
-    color: var(--primary);
-    font-size: 25px;
-}
-
-
-.logo strong {
-    color: var(--primary);
-}
-
-
-/* Hide desktop navigation on mobile */
-
-nav {
-    display: none;
-}
-
-
-/* Login */
-
-.login-btn {
-    min-height: 44px;
-
-    padding: 0 14px;
-
-    border: 0;
-
-    border-radius: 8px;
-
-    background: var(--primary);
-
-    color: white;
-
-    font-weight: 600;
-
-    cursor: pointer;
-}
-
-
-/* =========================================
-   HERO
-   ========================================= */
-
-.hero {
-    margin: 16px;
-
-    padding: 32px 20px;
-
-    border-radius: var(--radius-lg);
-
-    background:
-        linear-gradient(
-            135deg,
-            #1b5e20,
-            #388e3c
-        );
-
-    color: white;
-}
-
-
-.hero-content {
-    width: 100%;
-}
-
-
-.badge {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 6px;
-
-    padding: 6px 12px;
-
-    margin-bottom: 16px;
-
-    border-radius: 999px;
-
-    background: rgba(255,255,255,0.15);
-
-    font-size: 12px;
-}
-
-
-.hero h1 {
-    font-size: 32px;
-
-    line-height: 1.15;
-
-    margin-bottom: 16px;
-}
-
-
-.hero h1 span {
-    color: #ffca28;
-}
-
-
-.hero p {
-    font-size: 15px;
-
-    color: rgba(255,255,255,0.9);
-
-    margin-bottom: 24px;
-}
-
-
-.hero-buttons {
-    display: grid;
-
-    grid-template-columns: 1fr;
-
-    gap: 10px;
-}
-
-
-.primary-btn,
-.secondary-btn {
-    min-height: 46px;
-
-    padding: 0 18px;
-
-    border: 0;
-
-    border-radius: 8px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-}
-
-
-.primary-btn {
-    background: var(--secondary);
-
-    color: #222;
-}
-
-
-.secondary-btn {
-    background: white;
+.eyebrow {
 
     color: var(--primary);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
 }
 
 
-/* =========================================
-   STATS
-   ========================================= */
+.booking-icon {
 
-.stats {
-    display: grid;
+    width: 46px;
+    height: 46px;
 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    background: var(--primary-light);
 
-    gap: 12px;
-
-    margin-top: 16px;
-}
-
-
-.stat-card {
-    min-width: 0;
-
-    padding: 16px;
-
-    background: white;
-
-    border-radius: var(--radius);
-
-    box-shadow: var(--shadow);
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-}
-
-
-.stat-card i {
-    flex: 0 0 42px;
-
-    width: 42px;
-    height: 42px;
+    border-radius: 12px;
 
     display: grid;
 
     place-items: center;
-
-    border-radius: 10px;
-
-    background: var(--primary-light);
-
-    color: var(--primary);
 }
 
 
-.stat-card h3 {
-    font-size: 20px;
+/* =====================================================
+   FORM
+===================================================== */
 
-    color: var(--dark);
+.booking-card form {
+
+    padding: 18px;
 }
 
 
-.stat-card p {
-    color: var(--muted);
+.form-grid {
 
-    font-size: 12px;
-}
-
-
-/* =========================================
-   SECTIONS
-   ========================================= */
-
-.section {
-    padding: 56px 0;
-}
-
-
-.section-heading {
-    margin-bottom: 28px;
-
-    text-align: center;
-}
-
-
-.section-heading > span {
-    color: var(--primary);
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-}
-
-
-.section-heading h2 {
-    margin: 6px 0;
-
-    color: var(--dark);
-
-    font-size: 27px;
-
-    line-height: 1.2;
-}
-
-
-.section-heading p {
-    color: var(--muted);
-
-    font-size: 14px;
-}
-
-
-/* =========================================
-   BOOKING GRID
-   ========================================= */
-
-/*
-    Mobile:
-    Booking card = all 4 columns
-*/
-
-.booking-layout {
     display: grid;
 
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: 1fr;
 
     gap: 16px;
 }
 
 
-.booking-card,
-.availability-card {
-    grid-column: span 4;
+.form-group {
 
-    min-width: 0;
-
-    padding: 20px;
-
-    background: white;
-
-    border-radius: var(--radius);
-
-    box-shadow: var(--shadow);
-}
-
-
-.booking-card h3 {
     display: flex;
 
-    align-items: center;
+    flex-direction: column;
 
-    gap: 8px;
+    gap: 7px;
 
-    margin-bottom: 22px;
-
-    color: var(--dark);
-
-    font-size: 18px;
-}
-
-
-.booking-card h3 i {
-    color: var(--primary);
-}
-
-
-/* =========================================
-   FORM GRID
-   ========================================= */
-
-.form-row {
-    display: grid;
-
-    grid-template-columns: 1fr;
-
-    gap: 0;
-}
-
-
-.form-group {
     margin-bottom: 16px;
-
-    min-width: 0;
 }
 
 
 .form-group label {
-    display: block;
-
-    margin-bottom: 6px;
-
-    color: var(--dark);
 
     font-size: 13px;
 
-    font-weight: 600;
+    font-weight: 700;
 }
 
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+input,
+select,
+textarea {
+
     width: 100%;
-
-    min-height: 46px;
-
-    padding: 11px 12px;
 
     border: 1px solid var(--border);
 
-    border-radius: 8px;
-
     background: white;
+
+    border-radius: 10px;
+
+    padding: 12px 13px;
+
+    font-size: 14px;
+
+    font-family: inherit;
 
     outline: none;
 
-    font-size: 14px;
+    min-height: 46px;
+
+    transition: 0.2s;
 }
 
 
-.form-group textarea {
-    min-height: 100px;
+input:focus,
+select:focus,
+textarea:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(22, 128, 60, 0.08);
+}
+
+
+textarea {
+
+    min-height: 90px;
 
     resize: vertical;
 }
 
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--primary);
+.input-unit {
 
-    box-shadow:
-        0 0 0 3px rgba(46,125,50,0.1);
+    position: relative;
 }
 
 
-/* =========================================
-   SLOT GRID
-   ========================================= */
+.input-unit input {
+
+    padding-right: 65px;
+}
+
+
+.input-unit span {
+
+    position: absolute;
+
+    right: 13px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   SLOTS
+===================================================== */
 
 .slots {
+
     display: grid;
 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
     gap: 8px;
 }
 
 
-.slot input {
-    display: none;
+.slot {
+
+    border: 1px solid var(--border);
+
+    background: white;
+
+    border-radius: 10px;
+
+    padding: 12px 8px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    min-height: 68px;
+
+    transition: 0.2s;
+}
+
+
+.slot strong {
+
+    display: block;
+
+    font-size: 12px;
 }
 
 
 .slot span {
-    min-height: 48px;
 
-    display: flex;
+    display: block;
 
-    align-items: center;
+    color: var(--muted);
 
-    justify-content: center;
+    font-size: 10px;
 
-    padding: 8px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 8px;
-
-    text-align: center;
-
-    font-size: 12px;
-
-    cursor: pointer;
+    margin-top: 3px;
 }
 
 
-.slot input:checked + span {
-    background: var(--primary);
+.slot.active {
 
     border-color: var(--primary);
 
-    color: white;
+    background: var(--primary-light);
 }
 
 
-/* =========================================
-   BOOK BUTTON
-   ========================================= */
+.slot:hover {
 
-.book-btn {
+    border-color: var(--primary);
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.primary-btn {
+
     width: 100%;
 
-    min-height: 48px;
-
-    border: 0;
-
-    border-radius: 8px;
+    border: none;
 
     background: var(--primary);
 
     color: white;
+
+    border-radius: 10px;
+
+    min-height: 48px;
+
+    padding: 12px 16px;
 
     font-size: 14px;
 
     font-weight: 700;
 
-    cursor: pointer;
-}
-
-
-.book-btn:hover {
-    background: var(--primary-dark);
-}
-
-
-/* =========================================
-   AVAILABILITY
-   ========================================= */
-
-.availability-header {
     display: flex;
 
     align-items: center;
 
     justify-content: space-between;
 
-    margin-bottom: 20px;
+    cursor: pointer;
+
+    transition: 0.2s;
 }
 
 
-.availability-header span {
+.primary-btn:hover {
+
+    background: var(--primary-dark);
+}
+
+
+/* =====================================================
+   AVAILABILITY
+===================================================== */
+
+.availability-card {
+    padding-bottom: 0;
+}
+
+
+.status-dot {
+
     color: var(--success);
 
-    font-size: 11px;
+    background: var(--primary-light);
+
+    border-radius: 20px;
+
+    padding: 5px 9px;
+
+    font-size: 10px;
 
     font-weight: 700;
 }
 
 
-.availability-header h3 {
-    color: var(--dark);
+.status-dot::before {
 
-    font-size: 18px;
+    content: "";
+
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    margin-right: 5px;
 }
 
 
-.availability-header > i {
-    color: var(--primary);
-
-    font-size: 28px;
+.availability-list {
+    padding: 6px 18px;
 }
 
 
-.availability-item {
-    display: grid;
+.machine {
 
-    grid-template-columns: 70px 1fr;
+    display: flex;
+
+    align-items: center;
 
     gap: 10px;
 
@@ -638,42 +647,237 @@ nav {
 }
 
 
-.availability-item .time {
-    display: flex;
-
-    flex-direction: column;
+.machine:last-child {
+    border-bottom: none;
 }
 
 
-.availability-item .time strong {
-    color: var(--dark);
+.machine-icon {
 
-    font-size: 12px;
+    width: 40px;
+    height: 40px;
+
+    border-radius: 10px;
+
+    background: #f3f5f3;
+
+    display: grid;
+
+    place-items: center;
 }
 
 
-.availability-item .time small {
+.machine-info {
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.machine-info strong {
+
+    display: block;
+
+    font-size: 13px;
+}
+
+
+.machine-info span {
+
+    display: block;
+
     color: var(--muted);
 
     font-size: 11px;
 }
 
 
-.availability-item p {
-    color: var(--muted);
+.machine-status {
 
-    font-size: 12px;
+    font-size: 10px;
+
+    font-weight: 700;
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+
+    white-space: nowrap;
 }
 
 
-.status {
-    grid-column: 2;
+.machine-status.available {
 
-    justify-self: start;
+    background: var(--primary-light);
 
-    padding: 4px 9px;
+    color: var(--success);
+}
 
-    border-radius: 999px;
+
+.machine-status.booked {
+
+    background: #fff0f0;
+
+    color: var(--danger);
+}
+
+
+.availability-footer {
+
+    background: #fafbfa;
+
+    padding: 15px 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    font-size: 11px;
+}
+
+
+.availability-footer span {
+
+    color: var(--muted);
+}
+
+
+/* =====================================================
+   UPCOMING
+===================================================== */
+
+.upcoming-card .card-header a {
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+
+.booking-item {
+
+    padding: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.date-box {
+
+    width: 50px;
+    height: 58px;
+
+    background: var(--primary-light);
+
+    border-radius: 10px;
+
+    display: grid;
+
+    place-content: center;
+
+    text-align: center;
+
+    flex-shrink: 0;
+}
+
+
+.date-box strong {
+
+    font-size: 20px;
+
+    color: var(--primary);
+
+    line-height: 1;
+}
+
+
+.date-box span {
+
+    color: var(--primary);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    margin-top: 4px;
+}
+
+
+.booking-details {
+
+    flex: 1;
+}
+
+
+.booking-details strong {
+
+    display: block;
+
+    font-size: 13px;
+}
+
+
+.booking-details span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-top: 3px;
+}
+
+
+.badge {
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+.confirmed {
+
+    background: var(--primary-light);
+
+    color: var(--success);
+}
+
+
+/* =====================================================
+   UPDATES
+===================================================== */
+
+.notification-count {
+
+    background: var(--primary);
+
+    color: white;
+
+    width: 23px;
+    height: 23px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
 
     font-size: 10px;
 
@@ -681,310 +885,554 @@ nav {
 }
 
 
-.available-status {
+.update {
+
+    display: flex;
+
+    gap: 12px;
+
+    padding: 15px 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.update:last-child {
+    border-bottom: none;
+}
+
+
+.update-icon {
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 9px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.update-icon.green {
+
     background: var(--primary-light);
 
     color: var(--success);
 }
 
 
-.booked-status {
-    background: #ffebee;
+.update-icon.orange {
 
-    color: var(--danger);
+    background: #fff2df;
+
+    color: var(--warning);
 }
 
 
-/* =========================================
-   UPDATES
-   ========================================= */
+.update-icon.blue {
 
-.updates-grid {
-    display: grid;
+    background: #e8f1fc;
 
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
-    gap: 16px;
+    color: var(--blue);
 }
 
 
-.update-card {
-    grid-column: span 4;
+.update strong {
 
-    padding: 20px;
+    display: block;
 
-    background: white;
-
-    border-radius: var(--radius);
-
-    box-shadow: var(--shadow);
-
-    display: flex;
-
-    gap: 12px;
+    font-size: 12px;
 }
 
 
-.update-icon {
-    flex: 0 0 44px;
+.update p {
 
-    width: 44px;
-    height: 44px;
-
-    display: grid;
-
-    place-items: center;
-
-    border-radius: 10px;
-
-    background: var(--primary-light);
-
-    color: var(--primary);
-}
-
-
-.update-card span {
-    color: var(--primary);
+    color: var(--muted);
 
     font-size: 11px;
 
-    font-weight: 600;
+    margin-top: 2px;
 }
 
 
-.update-card h3 {
-    margin: 4px 0;
+.update small {
 
-    color: var(--dark);
+    display: block;
 
-    font-size: 16px;
+    color: #9aa19c;
+
+    font-size: 9px;
+
+    margin-top: 4px;
 }
 
 
-.update-card p {
+/* =====================================================
+   MOBILE NAV
+===================================================== */
+
+.mobile-nav {
+
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 64px;
+
+    background: white;
+
+    border-top: 1px solid var(--border);
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    z-index: 100;
+}
+
+
+.mobile-nav a {
+
+    text-decoration: none;
+
     color: var(--muted);
 
-    font-size: 13px;
+    font-size: 9px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
 }
 
 
-/* =========================================
-   TABLET — 8 COLUMN GRID
-   ========================================= */
+.mobile-nav a span {
 
-@media (min-width: 600px) {
+    font-size: 17px;
+}
 
-    :root {
-        --page-margin: 24px;
-        --grid-gap: 20px;
+
+.mobile-nav a.active {
+
+    color: var(--primary);
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   TABLET
+   8 COLUMN GRID
+===================================================== */
+
+@media (min-width: 640px) {
+
+    .dashboard {
+        padding: 20px;
     }
 
 
-    .container {
-        padding-left: var(--page-margin);
-        padding-right: var(--page-margin);
+    .stats-grid {
+
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+
+        gap: 14px;
     }
 
 
-    .hero {
-        margin: 24px;
+    .content-grid,
+    .lower-grid {
 
-        padding: 48px;
-    }
-
-
-    .hero h1 {
-        font-size: 42px;
-    }
-
-
-    .hero-buttons {
-        grid-template-columns: auto auto;
-
-        justify-content: start;
-    }
-
-
-    .stats {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-
-    .booking-layout {
-        grid-template-columns: repeat(8, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(8, minmax(0, 1fr));
     }
 
 
     .booking-card {
-        grid-column: span 8;
+        grid-column: span 5;
     }
 
 
     .availability-card {
-        grid-column: span 8;
+        grid-column: span 3;
     }
 
 
-    .form-row {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .upcoming-card {
+        grid-column: span 4;
+    }
 
-        gap: 16px;
+
+    .updates-card {
+        grid-column: span 4;
+    }
+
+
+    .form-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .form-group:last-child {
+        grid-column: span 2;
     }
 
 
     .slots {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
     }
 
-
-    .availability-item {
-        grid-template-columns: 90px 1fr auto;
-    }
-
-
-    .status {
-        grid-column: auto;
-
-        align-self: center;
-    }
-
-
-    .updates-grid {
-        grid-template-columns: repeat(8, minmax(0, 1fr));
-    }
-
-
-    .update-card {
-        grid-column: span 4;
-    }
 }
 
 
-/* =========================================
-   DESKTOP — 12 COLUMN GRID
-   ========================================= */
+/* =====================================================
+   DESKTOP
+   12 COLUMN GRID
+===================================================== */
 
 @media (min-width: 1024px) {
 
-    :root {
-        --page-margin: 32px;
-        --grid-gap: 24px;
+    .app {
+        display: grid;
+
+        grid-template-columns: 240px 1fr;
     }
 
 
-    .container {
-        padding-left: var(--page-margin);
-        padding-right: var(--page-margin);
-    }
+    /* SIDEBAR */
 
+    .sidebar {
 
-    .header-content {
-        grid-template-columns: auto 1fr auto;
-    }
-
-
-    nav {
         display: flex;
 
-        justify-content: center;
+        flex-direction: column;
 
-        gap: 4px;
+        height: 100vh;
+
+        position: sticky;
+
+        top: 0;
+
+        background: white;
+
+        border-right: 1px solid var(--border);
+
+        padding: 24px 16px;
     }
 
 
-    .hero {
-        max-width: 1376px;
+    .brand {
 
-        margin: 32px auto;
+        display: flex;
 
-        min-height: 500px;
+        align-items: center;
 
-        padding: 70px;
+        gap: 10px;
+
+        padding: 0 8px;
+
+        margin-bottom: 35px;
     }
 
 
-    .hero h1 {
-        font-size: 54px;
+    .brand-icon {
+
+        width: 40px;
+        height: 40px;
+
+        background: var(--primary-light);
+
+        border-radius: 11px;
+
+        display: grid;
+
+        place-items: center;
     }
 
 
-    .hero-image {
-        width: 320px;
-        height: 320px;
+    .brand h2 {
+
+        font-size: 15px;
+    }
+
+
+    .brand span {
+
+        display: block;
+
+        color: var(--muted);
+
+        font-size: 9px;
+    }
+
+
+    .side-nav {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+
+    .nav-item {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        padding: 11px 12px;
+
+        border-radius: 10px;
+
+        text-decoration: none;
+
+        color: var(--muted);
+
+        font-size: 13px;
+
+        font-weight: 600;
+    }
+
+
+    .nav-item span {
+
+        width: 20px;
+
+        text-align: center;
+    }
+
+
+    .nav-item.active {
+
+        color: var(--primary);
+
+        background: var(--primary-light);
+    }
+
+
+    .sidebar-bottom {
+
+        margin-top: auto;
+    }
+
+
+    .user-card {
+
+        border-top: 1px solid var(--border);
+
+        padding: 16px 8px;
+
+        display: flex;
+
+        gap: 10px;
+
+        align-items: center;
+    }
+
+
+    .avatar {
+
+        width: 36px;
+        height: 36px;
+
+        border-radius: 50%;
+
+        background: var(--primary);
+
+        color: white;
 
         display: grid;
 
         place-items: center;
 
-        border-radius: 50%;
+        font-weight: 700;
 
-        background: rgba(255,255,255,0.12);
+        font-size: 12px;
     }
 
 
-    .hero-image i {
-        font-size: 150px;
+    .user-card strong {
+
+        display: block;
+
+        font-size: 12px;
     }
 
 
-    /*
-        12-column booking grid
+    .user-card small {
 
-        Form       = 7 columns
-        Availability = 5 columns
-    */
+        color: var(--muted);
 
-    .booking-layout {
+        font-size: 10px;
+    }
+
+
+    .logout-btn {
+
+        width: 100%;
+
+        border: none;
+
+        background: #fff1f1;
+
+        color: var(--danger);
+
+        padding: 10px;
+
+        border-radius: 9px;
+
+        cursor: pointer;
+    }
+
+
+    /* MAIN */
+
+    .main {
+        padding-bottom: 0;
+    }
+
+
+    .topbar {
+
+        height: 76px;
+
+        padding: 0 32px;
+    }
+
+
+    .topbar h1 {
+        font-size: 20px;
+    }
+
+
+    .profile {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 9px;
+    }
+
+
+    .profile-info strong {
+
+        display: block;
+
+        font-size: 12px;
+    }
+
+
+    .profile-info small {
+
+        display: block;
+
+        color: var(--muted);
+
+        font-size: 10px;
+    }
+
+
+    .dashboard {
+
+        max-width: 1500px;
+
+        margin: auto;
+
+        padding: 24px 32px;
+    }
+
+
+    .content-grid,
+    .lower-grid {
+
         grid-template-columns:
             repeat(12, minmax(0, 1fr));
+
+        gap: 20px;
     }
 
 
     .booking-card {
+
         grid-column: span 7;
     }
 
 
     .availability-card {
+
         grid-column: span 5;
     }
 
 
-    .updates-grid {
-        grid-template-columns:
-            repeat(12, minmax(0, 1fr));
+    .upcoming-card {
+
+        grid-column: span 6;
     }
 
 
-    .update-card {
-        grid-column: span 4;
+    .updates-card {
+
+        grid-column: span 6;
     }
 
 
-    .section-heading {
-        margin-bottom: 40px;
+    .mobile-nav {
+        display: none;
     }
+
 }
 
 
-/* =========================================
+/* =====================================================
    LARGE DESKTOP
-   ========================================= */
+===================================================== */
 
-@media (min-width: 1280px) {
+@media (min-width: 1400px) {
 
-    .hero h1 {
-        font-size: 60px;
+    .app {
+
+        grid-template-columns: 260px 1fr;
     }
 
 
-    .section {
-        padding: 80px 0;
+    .dashboard {
+
+        padding-left: 40px;
+
+        padding-right: 40px;
     }
 
 
-    .booking-card,
-    .availability-card {
-        padding: 30px;
+    .form-grid {
+
+        gap: 18px;
     }
+
 }
