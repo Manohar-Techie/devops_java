@@ -1,4 +1,7 @@
-```css
+/* =========================================
+   MOBILE-FIRST DESIGN SYSTEM
+   ========================================= */
+
 :root {
     --primary: #2e7d32;
     --primary-dark: #1b5e20;
@@ -19,11 +22,19 @@
     --success: #2e7d32;
     --danger: #d32f2f;
 
-    --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+    --radius-lg: 18px;
 
-    --radius: 14px;
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
+
+    --page-margin: 16px;
+    --grid-gap: 16px;
 }
 
+
+/* =========================================
+   RESET
+   ========================================= */
 
 * {
     box-sizing: border-box;
@@ -41,35 +52,42 @@ body {
     font-family: Arial, sans-serif;
     background: var(--background);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-
-button,
-input,
-select,
-textarea {
-    font-family: inherit;
-}
-
-
-/* CONTAINER */
+/* =========================================
+   4-COLUMN MOBILE GRID
+   ========================================= */
 
 .container {
     width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
+    max-width: 1440px;
+
+    margin: 0 auto;
+
+    padding-left: var(--page-margin);
+    padding-right: var(--page-margin);
 }
 
 
-/* HEADER */
+/*
+    Every major section follows the same
+    4-column mobile grid.
+*/
+
+.grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: var(--grid-gap);
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
 
 .header {
     position: sticky;
@@ -79,37 +97,36 @@ textarea {
     background: rgba(255,255,255,0.96);
 
     border-bottom: 1px solid var(--border);
-
-    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
 }
 
 
 .header-content {
-    min-height: 72px;
+    min-height: 64px;
 
-    display: flex;
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
     align-items: center;
-    justify-content: space-between;
 
-    gap: 30px;
+    gap: 16px;
 }
 
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
 
-    font-size: 22px;
+    gap: 8px;
+
+    font-size: 19px;
     font-weight: 700;
-
-    color: var(--dark);
 }
 
 
 .logo i {
     color: var(--primary);
-    font-size: 30px;
+    font-size: 25px;
 }
 
 
@@ -118,100 +135,86 @@ textarea {
 }
 
 
+/* Hide desktop navigation on mobile */
+
 nav {
-    display: flex;
-    gap: 8px;
+    display: none;
 }
 
 
-nav a {
-    padding: 9px 14px;
-
-    color: var(--text);
-
-    font-weight: 500;
-
-    border-radius: 8px;
-
-    transition: 0.2s;
-}
-
-
-nav a:hover {
-    background: var(--primary-light);
-    color: var(--primary);
-}
-
+/* Login */
 
 .login-btn {
-    background: var(--primary);
-    color: white;
+    min-height: 44px;
 
-    padding: 10px 18px;
+    padding: 0 14px;
 
-    border: none;
+    border: 0;
+
     border-radius: 8px;
 
-    cursor: pointer;
+    background: var(--primary);
+
+    color: white;
 
     font-weight: 600;
+
+    cursor: pointer;
 }
 
 
-/* HERO */
+/* =========================================
+   HERO
+   ========================================= */
 
 .hero {
-    max-width: 1200px;
-    min-height: 500px;
+    margin: 16px;
 
-    margin: 25px auto;
+    padding: 32px 20px;
 
-    padding: 60px;
-
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
 
     background:
         linear-gradient(
-            110deg,
-            rgba(27,94,32,0.95),
-            rgba(46,125,50,0.80)
+            135deg,
+            #1b5e20,
+            #388e3c
         );
 
     color: white;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    overflow: hidden;
 }
 
 
 .hero-content {
-    max-width: 650px;
+    width: 100%;
 }
 
 
 .badge {
-    display: inline-block;
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 6px 12px;
+
+    margin-bottom: 16px;
+
+    border-radius: 999px;
 
     background: rgba(255,255,255,0.15);
 
-    padding: 7px 15px;
-
-    border-radius: 30px;
-
-    margin-bottom: 18px;
-
-    font-size: 14px;
+    font-size: 12px;
 }
 
 
 .hero h1 {
-    font-size: 52px;
+    font-size: 32px;
+
     line-height: 1.15;
 
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 
@@ -221,203 +224,210 @@ nav a:hover {
 
 
 .hero p {
-    max-width: 600px;
-
-    font-size: 18px;
+    font-size: 15px;
 
     color: rgba(255,255,255,0.9);
 
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
 
 .hero-buttons {
-    display: flex;
-    gap: 12px;
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 10px;
 }
 
 
 .primary-btn,
 .secondary-btn {
-    padding: 13px 22px;
+    min-height: 46px;
 
-    border-radius: 9px;
+    padding: 0 18px;
+
+    border: 0;
+
+    border-radius: 8px;
 
     font-weight: 600;
 
     cursor: pointer;
-
-    border: none;
-
-    transition: 0.2s;
 }
 
 
 .primary-btn {
     background: var(--secondary);
+
     color: #222;
-}
-
-
-.primary-btn:hover {
-    transform: translateY(-2px);
 }
 
 
 .secondary-btn {
     background: white;
+
     color: var(--primary);
 }
 
 
-.hero-image {
-    width: 300px;
-    height: 300px;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.12);
-
-    display: grid;
-    place-items: center;
-}
-
-
-.hero-image i {
-    font-size: 150px;
-    color: #fff;
-}
-
-
-/* STATS */
+/* =========================================
+   STATS
+   ========================================= */
 
 .stats {
     display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    gap: 18px;
+    gap: 12px;
 
-    margin-top: 30px;
+    margin-top: 16px;
 }
 
 
 .stat-card {
-    background: white;
+    min-width: 0;
 
-    padding: 22px;
+    padding: 16px;
+
+    background: white;
 
     border-radius: var(--radius);
 
     box-shadow: var(--shadow);
 
     display: flex;
+
     align-items: center;
 
-    gap: 15px;
+    gap: 10px;
 }
 
 
 .stat-card i {
-    width: 50px;
-    height: 50px;
+    flex: 0 0 42px;
 
-    border-radius: 12px;
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 10px;
 
     background: var(--primary-light);
 
     color: var(--primary);
-
-    display: grid;
-    place-items: center;
-
-    font-size: 22px;
 }
 
 
 .stat-card h3 {
-    font-size: 22px;
+    font-size: 20px;
+
     color: var(--dark);
 }
 
 
 .stat-card p {
     color: var(--muted);
-    font-size: 14px;
+
+    font-size: 12px;
 }
 
 
-/* SECTION */
+/* =========================================
+   SECTIONS
+   ========================================= */
 
 .section {
-    padding: 80px 0;
+    padding: 56px 0;
 }
 
 
 .section-heading {
-    text-align: center;
+    margin-bottom: 28px;
 
-    margin-bottom: 40px;
+    text-align: center;
 }
 
 
 .section-heading > span {
     color: var(--primary);
 
-    font-weight: 700;
+    font-size: 12px;
 
-    font-size: 13px;
+    font-weight: 700;
 
     letter-spacing: 1px;
 }
 
 
 .section-heading h2 {
-    font-size: 34px;
+    margin: 6px 0;
 
     color: var(--dark);
 
-    margin: 8px 0;
+    font-size: 27px;
+
+    line-height: 1.2;
 }
 
 
 .section-heading p {
     color: var(--muted);
+
+    font-size: 14px;
 }
 
 
-/* BOOKING */
+/* =========================================
+   BOOKING GRID
+   ========================================= */
+
+/*
+    Mobile:
+    Booking card = all 4 columns
+*/
 
 .booking-layout {
     display: grid;
 
-    grid-template-columns: 1.4fr 0.8fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 
-    gap: 25px;
+    gap: 16px;
 }
 
 
 .booking-card,
 .availability-card {
+    grid-column: span 4;
+
+    min-width: 0;
+
+    padding: 20px;
+
     background: white;
 
     border-radius: var(--radius);
 
     box-shadow: var(--shadow);
-
-    padding: 30px;
 }
 
 
 .booking-card h3 {
-    color: var(--dark);
-
-    margin-bottom: 25px;
-
     display: flex;
+
     align-items: center;
 
-    gap: 10px;
+    gap: 8px;
+
+    margin-bottom: 22px;
+
+    color: var(--dark);
+
+    font-size: 18px;
 }
 
 
@@ -426,30 +436,36 @@ nav a:hover {
 }
 
 
+/* =========================================
+   FORM GRID
+   ========================================= */
+
 .form-row {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 
-    gap: 18px;
+    gap: 0;
 }
 
 
 .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+
+    min-width: 0;
 }
 
 
 .form-group label {
     display: block;
 
-    font-weight: 600;
-
-    font-size: 14px;
-
-    margin-bottom: 7px;
+    margin-bottom: 6px;
 
     color: var(--dark);
+
+    font-size: 13px;
+
+    font-weight: 600;
 }
 
 
@@ -458,17 +474,26 @@ nav a:hover {
 .form-group textarea {
     width: 100%;
 
-    padding: 12px 14px;
+    min-height: 46px;
+
+    padding: 11px 12px;
 
     border: 1px solid var(--border);
 
     border-radius: 8px;
 
+    background: white;
+
     outline: none;
 
     font-size: 14px;
+}
 
-    background: white;
+
+.form-group textarea {
+    min-height: 100px;
+
+    resize: vertical;
 }
 
 
@@ -477,23 +502,21 @@ nav a:hover {
 .form-group textarea:focus {
     border-color: var(--primary);
 
-    box-shadow: 0 0 0 3px rgba(46,125,50,0.10);
+    box-shadow:
+        0 0 0 3px rgba(46,125,50,0.1);
 }
 
 
-.form-group textarea {
-    resize: vertical;
-}
-
-
-/* SLOTS */
+/* =========================================
+   SLOT GRID
+   ========================================= */
 
 .slots {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    gap: 10px;
+    gap: 8px;
 }
 
 
@@ -503,53 +526,59 @@ nav a:hover {
 
 
 .slot span {
-    display: block;
+    min-height: 48px;
 
-    padding: 12px;
+    display: flex;
 
-    text-align: center;
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 8px;
 
     border: 1px solid var(--border);
 
     border-radius: 8px;
 
+    text-align: center;
+
+    font-size: 12px;
+
     cursor: pointer;
-
-    font-size: 13px;
-
-    transition: 0.2s;
 }
 
 
 .slot input:checked + span {
     background: var(--primary);
 
-    color: white;
-
     border-color: var(--primary);
+
+    color: white;
 }
 
+
+/* =========================================
+   BOOK BUTTON
+   ========================================= */
 
 .book-btn {
     width: 100%;
 
-    padding: 14px;
+    min-height: 48px;
+
+    border: 0;
+
+    border-radius: 8px;
 
     background: var(--primary);
 
     color: white;
 
-    border: none;
-
-    border-radius: 8px;
-
-    cursor: pointer;
+    font-size: 14px;
 
     font-weight: 700;
 
-    font-size: 15px;
-
-    transition: 0.2s;
+    cursor: pointer;
 }
 
 
@@ -558,23 +587,25 @@ nav a:hover {
 }
 
 
-/* AVAILABILITY */
+/* =========================================
+   AVAILABILITY
+   ========================================= */
 
 .availability-header {
     display: flex;
 
-    justify-content: space-between;
-
     align-items: center;
 
-    margin-bottom: 25px;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
 }
 
 
 .availability-header span {
     color: var(--success);
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: 700;
 }
@@ -582,26 +613,26 @@ nav a:hover {
 
 .availability-header h3 {
     color: var(--dark);
+
+    font-size: 18px;
 }
 
 
 .availability-header > i {
     color: var(--primary);
 
-    font-size: 32px;
+    font-size: 28px;
 }
 
 
 .availability-item {
     display: grid;
 
-    grid-template-columns: 90px 1fr auto;
+    grid-template-columns: 70px 1fr;
 
-    gap: 12px;
+    gap: 10px;
 
-    align-items: center;
-
-    padding: 17px 0;
+    padding: 15px 0;
 
     border-bottom: 1px solid var(--border);
 }
@@ -616,27 +647,35 @@ nav a:hover {
 
 .availability-item .time strong {
     color: var(--dark);
+
+    font-size: 12px;
 }
 
 
 .availability-item .time small {
     color: var(--muted);
+
+    font-size: 11px;
 }
 
 
 .availability-item p {
-    font-size: 13px;
-
     color: var(--muted);
+
+    font-size: 12px;
 }
 
 
 .status {
-    padding: 5px 10px;
+    grid-column: 2;
 
-    border-radius: 20px;
+    justify-self: start;
 
-    font-size: 11px;
+    padding: 4px 9px;
+
+    border-radius: 999px;
+
+    font-size: 10px;
 
     font-weight: 700;
 }
@@ -656,141 +695,25 @@ nav a:hover {
 }
 
 
-.info-box {
-    display: flex;
-
-    gap: 10px;
-
-    margin-top: 20px;
-
-    padding: 15px;
-
-    background: var(--secondary-light);
-
-    border-radius: 10px;
-
-    font-size: 13px;
-}
-
-
-.info-box i {
-    color: var(--secondary);
-}
-
-
-/* BOOKINGS */
-
-.bookings-section {
-    background: white;
-}
-
-
-.booking-list {
-    min-height: 180px;
-}
-
-
-.empty-bookings {
-    text-align: center;
-
-    padding: 40px;
-
-    border: 2px dashed var(--border);
-
-    border-radius: var(--radius);
-}
-
-
-.empty-bookings i {
-    font-size: 40px;
-
-    color: var(--muted);
-
-    margin-bottom: 15px;
-}
-
-
-.empty-bookings h3 {
-    color: var(--dark);
-
-    margin-bottom: 5px;
-}
-
-
-.empty-bookings p {
-    color: var(--muted);
-
-    margin-bottom: 20px;
-}
-
-
-/* BOOKING ITEM */
-
-.booking-item {
-    background: var(--background);
-
-    border: 1px solid var(--border);
-
-    padding: 20px;
-
-    border-radius: 12px;
-
-    margin-bottom: 15px;
-
-    display: grid;
-
-    grid-template-columns: 1fr auto;
-
-    gap: 15px;
-}
-
-
-.booking-item h3 {
-    color: var(--dark);
-
-    margin-bottom: 5px;
-}
-
-
-.booking-item p {
-    color: var(--muted);
-
-    font-size: 14px;
-}
-
-
-.booking-status {
-    align-self: start;
-
-    padding: 6px 12px;
-
-    background: var(--primary-light);
-
-    color: var(--success);
-
-    border-radius: 20px;
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-
-/* UPDATES */
+/* =========================================
+   UPDATES
+   ========================================= */
 
 .updates-grid {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 
-    gap: 20px;
+    gap: 16px;
 }
 
 
 .update-card {
-    background: white;
+    grid-column: span 4;
 
-    padding: 25px;
+    padding: 20px;
+
+    background: white;
 
     border-radius: var(--radius);
 
@@ -798,309 +721,270 @@ nav a:hover {
 
     display: flex;
 
-    gap: 15px;
+    gap: 12px;
 }
 
 
 .update-icon {
-    flex-shrink: 0;
+    flex: 0 0 44px;
 
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 10px;
 
     background: var(--primary-light);
 
     color: var(--primary);
-
-    border-radius: 10px;
-
-    display: grid;
-    place-items: center;
 }
 
 
 .update-card span {
-    font-size: 12px;
-
     color: var(--primary);
+
+    font-size: 11px;
 
     font-weight: 600;
 }
 
 
 .update-card h3 {
+    margin: 4px 0;
+
     color: var(--dark);
 
-    font-size: 17px;
-
-    margin: 5px 0;
+    font-size: 16px;
 }
 
 
 .update-card p {
     color: var(--muted);
 
-    font-size: 14px;
-}
-
-
-/* MODAL */
-
-.modal {
-    display: none;
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 2000;
-
-    background: rgba(0,0,0,0.55);
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 20px;
-}
-
-
-.modal.show {
-    display: flex;
-}
-
-
-.modal-content {
-    background: white;
-
-    width: 100%;
-
-    max-width: 400px;
-
-    padding: 35px;
-
-    border-radius: 16px;
-
-    position: relative;
-
-    text-align: center;
-}
-
-
-.close-btn {
-    position: absolute;
-
-    top: 15px;
-
-    right: 15px;
-
-    width: 35px;
-    height: 35px;
-
-    border: none;
-
-    background: var(--background);
-
-    border-radius: 50%;
-
-    cursor: pointer;
-}
-
-
-.login-icon {
-    width: 60px;
-    height: 60px;
-
-    margin: auto auto 15px;
-
-    border-radius: 50%;
-
-    background: var(--primary-light);
-
-    color: var(--primary);
-
-    display: grid;
-    place-items: center;
-
-    font-size: 25px;
-}
-
-
-.modal-content h2 {
-    color: var(--dark);
-}
-
-
-.modal-content p {
-    color: var(--muted);
-
-    margin: 5px 0 20px;
-}
-
-
-.modal-content input {
-    width: 100%;
-
-    padding: 13px;
-
-    margin-bottom: 15px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 8px;
-}
-
-
-.otp-section {
-    display: none;
-
-    margin-top: 15px;
-}
-
-
-/* FOOTER */
-
-footer {
-    background: #17251a;
-
-    color: white;
-
-    padding: 30px 0;
-}
-
-
-.footer-content {
-    text-align: center;
-}
-
-
-.footer-content .logo {
-    justify-content: center;
-
-    color: white;
-
-    margin-bottom: 10px;
-}
-
-
-.footer-content p {
-    color: rgba(255,255,255,0.65);
-
     font-size: 13px;
-
-    margin-top: 5px;
 }
 
 
-/* RESPONSIVE */
+/* =========================================
+   TABLET — 8 COLUMN GRID
+   ========================================= */
 
-@media(max-width: 900px) {
+@media (min-width: 600px) {
 
-    nav {
-        display: none;
+    :root {
+        --page-margin: 24px;
+        --grid-gap: 20px;
     }
+
+
+    .container {
+        padding-left: var(--page-margin);
+        padding-right: var(--page-margin);
+    }
+
 
     .hero {
-        margin: 15px;
+        margin: 24px;
 
-        padding: 40px 30px;
-
-        min-height: auto;
+        padding: 48px;
     }
+
 
     .hero h1 {
-        font-size: 40px;
+        font-size: 42px;
     }
 
-    .hero-image {
-        display: none;
-    }
-
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .booking-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .updates-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-@media(max-width: 600px) {
-
-    .header-content {
-        min-height: 62px;
-    }
-
-    .logo {
-        font-size: 18px;
-    }
-
-    .logo i {
-        font-size: 23px;
-    }
-
-    .login-btn {
-        padding: 8px 12px;
-    }
-
-    .hero {
-        border-radius: 14px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
 
     .hero-buttons {
-        flex-direction: column;
+        grid-template-columns: auto auto;
+
+        justify-content: start;
     }
+
 
     .stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .section {
-        padding: 55px 0;
+
+    .booking-layout {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
     }
 
-    .section-heading h2 {
-        font-size: 27px;
+
+    .booking-card {
+        grid-column: span 8;
     }
+
+
+    .availability-card {
+        grid-column: span 8;
+    }
+
 
     .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
     }
 
+
     .slots {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+
+
+    .availability-item {
+        grid-template-columns: 90px 1fr auto;
+    }
+
+
+    .status {
+        grid-column: auto;
+
+        align-self: center;
+    }
+
+
+    .updates-grid {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+    }
+
+
+    .update-card {
+        grid-column: span 4;
+    }
+}
+
+
+/* =========================================
+   DESKTOP — 12 COLUMN GRID
+   ========================================= */
+
+@media (min-width: 1024px) {
+
+    :root {
+        --page-margin: 32px;
+        --grid-gap: 24px;
+    }
+
+
+    .container {
+        padding-left: var(--page-margin);
+        padding-right: var(--page-margin);
+    }
+
+
+    .header-content {
+        grid-template-columns: auto 1fr auto;
+    }
+
+
+    nav {
+        display: flex;
+
+        justify-content: center;
+
+        gap: 4px;
+    }
+
+
+    .hero {
+        max-width: 1376px;
+
+        margin: 32px auto;
+
+        min-height: 500px;
+
+        padding: 70px;
+    }
+
+
+    .hero h1 {
+        font-size: 54px;
+    }
+
+
+    .hero-image {
+        width: 320px;
+        height: 320px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 50%;
+
+        background: rgba(255,255,255,0.12);
+    }
+
+
+    .hero-image i {
+        font-size: 150px;
+    }
+
+
+    /*
+        12-column booking grid
+
+        Form       = 7 columns
+        Availability = 5 columns
+    */
+
+    .booking-layout {
+        grid-template-columns:
+            repeat(12, minmax(0, 1fr));
+    }
+
+
+    .booking-card {
+        grid-column: span 7;
+    }
+
+
+    .availability-card {
+        grid-column: span 5;
+    }
+
+
+    .updates-grid {
+        grid-template-columns:
+            repeat(12, minmax(0, 1fr));
+    }
+
+
+    .update-card {
+        grid-column: span 4;
+    }
+
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+   ========================================= */
+
+@media (min-width: 1280px) {
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+
+    .section {
+        padding: 80px 0;
+    }
+
 
     .booking-card,
     .availability-card {
-        padding: 20px;
-    }
-
-    .availability-item {
-        grid-template-columns: 75px 1fr;
-    }
-
-    .availability-item .status {
-        grid-column: 2;
-        justify-self: start;
-    }
-
-    .booking-item {
-        grid-template-columns: 1fr;
+        padding: 30px;
     }
 }
-```
